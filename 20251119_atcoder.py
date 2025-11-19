@@ -8,14 +8,19 @@
 #     print(3)
 
 S = list(input().strip())
+idx = 0
+expected = 'i'
 ans = 0
 
-if len(S)%2:
-    ans +=1
-for i in range(0,len(S)+1,2):
-    if S[i] != 'i':
+while idx < len(S):
+    if S[idx] == expected:
+        idx += 1
+    else:
         ans += 1
-for i in range(1,len(S), 2):
-    if S[i] != 'o':
-        ans += 1
+    if expected == 'i':
+        expected = 'o'
+    else:
+        expected = 'i'
+if (ans + len(S)) % 2 == 1:
+    ans += 1
 print(ans)

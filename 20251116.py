@@ -31,6 +31,13 @@
 #         arr[j] = 0
 #     return arr
 
+#0以外と0に分けてそれを繋ぎ合わせる
+# X = list(map(int, input().strip()))
+# non_zero = [n for n in X if n!=0]
+# zeros = [n for n in X if n==0]
+
+# ans = non_zero + zeros
+
 
 
 
@@ -78,6 +85,8 @@
 #         for j in range(i+1,len(nums)):
 #             if nums[i] + nums[j] == target:
 #                 return(i, j)
+
+
 # def solution(nums, target):
 #     #探索したインデックスを保存
 #     value_to_index = {}

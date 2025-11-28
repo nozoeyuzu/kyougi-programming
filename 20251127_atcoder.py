@@ -40,3 +40,21 @@
 # ans = non_zero[:1] + zeros + non_zero[1:]
 # print(''.join(map(str,ans)))
 
+N, X, Y = map(int, input().split())
+A = list(map(int, input().split()))
+
+if Y*min(A) < X*max(A):
+    print(-1)
+else:
+    S = set()
+    z = Y - X
+    for i in range(N):
+        S.add((X*A[i]) % z)
+    if len(S) > 1:
+        print(-1)
+    else:
+        g = Y*min(A)
+        ans = 0
+        for i in range(N):
+            ans += (g - X * A[i]) // z
+        print(ans)

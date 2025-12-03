@@ -47,11 +47,25 @@
 #             k[i] += 1
 #     print(k[i])
 
-N, M = map(int, input().split())
-ans = 0
-for i in range(M+1):
-    ans += N**i
-    if ans > 10**9:
-        print('inf')
-        exit()
-print(ans)
+# N, M = map(int, input().split())
+# ans = 0
+# for i in range(M+1):
+#     ans += N**i
+#     if ans > 10**9:
+#         print('inf')
+#         exit()
+# print(ans)
+
+N = int(input())
+error = 0
+login_flag = False
+
+for _ in range(N):
+    S = input()
+    if S == 'login':
+        login_flag = True
+    elif S == 'logout':
+        login_flag = False
+    if S == 'private' and login_flag == False:
+        error += 1
+print(error)

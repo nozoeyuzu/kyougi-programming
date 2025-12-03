@@ -56,16 +56,27 @@
 #         exit()
 # print(ans)
 
-N = int(input())
-error = 0
-login_flag = False
+# N = int(input())
+# error = 0
+# login_flag = False
 
-for _ in range(N):
-    S = input()
-    if S == 'login':
-        login_flag = True
-    elif S == 'logout':
-        login_flag = False
-    if S == 'private' and login_flag == False:
-        error += 1
-print(error)
+# for _ in range(N):
+#     S = input()
+#     if S == 'login':
+#         login_flag = True
+#     elif S == 'logout':
+#         login_flag = False
+#     if S == 'private' and login_flag == False:
+#         error += 1
+# print(error)
+
+# Q = int(input())
+# line = []
+# for _ in range(Q):
+#     query = list(map(int, input().split()))
+#     if query[0] == 1:
+#         line.append(query[1])
+#     else:
+#         print(line[0])
+#         line.pop(0)
+

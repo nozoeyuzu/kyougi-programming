@@ -80,16 +80,41 @@
 #         print(line[0])
 #         line.pop(0)
 
-T = list(map(str, input().strip()))
-U = list(map(str, input().strip()))
+# T = list(map(str, input().strip()))
+# U = list(map(str, input().strip()))
 
-for i in range(len(T)-len(U) + 1):
-    include = True
-    for j in range(len(U)):
-        if T[i+j] == U[j] or T[i+j] == '?':
-            continue
-        include = False
-    if include == True:
-        print('Yes')
-        exit()
-print('No')
+# for i in range(len(T)-len(U) + 1):
+#     include = True
+#     for j in range(len(U)):
+#         if T[i+j] == U[j] or T[i+j] == '?':
+#             continue
+#         include = False
+#     if include == True:
+#         print('Yes')
+#         exit()
+# print('No')
+
+N = int(input())
+S = [input().strip() for _ in range(N)]
+T = [input().strip() for _ in range(N)]
+#0度,90度,180度,270度それぞれ回転させて、その状態で何回マスを置換したか計算
+new_S = S
+ans = 10**18
+
+def rotate(grid):
+    rotated = [[''] * N for _ in range(N)]
+    for i in range(N):
+        for j in range(N):
+            rotated[j][N - 1 - i] = grid[i][j]
+    return ["".join(row) for row in rotated]
+
+for r in range(4):
+    diff = 0
+    for i in range(N):
+        for j in range(N):
+            if new_S[i][j] != T[i][j]:
+                diff += 1
+    ans = min(ans, r+diff)
+
+    new_S = rotate(new_S)
+print(ans)

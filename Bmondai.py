@@ -145,11 +145,19 @@
 #         times = 1
 # print(times)
 
-X, Y = map(int, input().split())
+# X, Y = map(int, input().split())
 
-ans = set()
-for i in range(1, 7):
-    for j in range(1, 7):
-        if i+j >= X or abs(i-j) >= Y:
-            ans.add((i,j))
-print(len(ans)/36)
+# ans = set()
+# for i in range(1, 7):
+#     for j in range(1, 7):
+#         if i+j >= X or abs(i-j) >= Y:
+#             ans.add((i,j))
+# print(len(ans)/36)
+
+N = int(input())
+A = list(map(int, input().split()))
+
+set_A = set(A)
+ans = sorted(set_A)
+print(len(ans))
+print(*ans)

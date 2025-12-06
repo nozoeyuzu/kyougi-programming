@@ -119,18 +119,28 @@
 #     new_S = rotate(new_S)
 # print(ans)
 
-N, M = map(int, input().split())
-A = list(map(int, input().split()))
-A_need = set([i for i in range(1,M+1)])
-ans = 0
+# N, M = map(int, input().split())
+# A = list(map(int, input().split()))
+# A_need = set([i for i in range(1,M+1)])
+# ans = 0
 
-if not A_need.issubset(set(A)):
-    print(0)
-    exit()
+# if not A_need.issubset(set(A)):
+#     print(0)
+#     exit()
+
+# for i in range(N):
+#     if A_need.issubset(A):
+#         ans += 1
+#     A.pop()
+
+# print(ans)
+
+N, K = map(int, input().split())
+A = list(map(int, input().split()))
+times = 1
 
 for i in range(N):
-    if A_need.issubset(A):
-        ans += 1
-    A.pop()
-
-print(ans)
+    times = times * A[i]
+    if times >= 10**K:
+        times = 1
+print(times)

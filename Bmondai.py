@@ -135,12 +135,21 @@
 
 # print(ans)
 
-N, K = map(int, input().split())
-A = list(map(int, input().split()))
-times = 1
+# N, K = map(int, input().split())
+# A = list(map(int, input().split()))
+# times = 1
 
-for i in range(N):
-    times = times * A[i]
-    if times >= 10**K:
-        times = 1
-print(times)
+# for i in range(N):
+#     times = times * A[i]
+#     if times >= 10**K:
+#         times = 1
+# print(times)
+
+X, Y = map(int, input().split())
+
+ans = set()
+for i in range(1, 7):
+    for j in range(1, 7):
+        if i+j >= X or abs(i-j) >= Y:
+            ans.add((i,j))
+print(len(ans)/36)

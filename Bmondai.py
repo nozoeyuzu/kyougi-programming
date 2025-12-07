@@ -154,10 +154,24 @@
 #             ans.add((i,j))
 # print(len(ans)/36)
 
+# N = int(input())
+# A = list(map(int, input().split()))
+
+# set_A = set(A)
+# ans = sorted(set_A)
+# print(len(ans))
+# print(*ans)
+
 N = int(input())
 A = list(map(int, input().split()))
+ans = 0
 
-set_A = set(A)
-ans = sorted(set_A)
-print(len(ans))
-print(*ans)
+for i in range(N+1):
+    count = 0
+    for a in A:
+        if a >= i:
+            count += 1
+    if count >= i:
+        ans = i
+    
+print(ans)

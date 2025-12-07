@@ -162,16 +162,31 @@
 # print(len(ans))
 # print(*ans)
 
-N = int(input())
-A = list(map(int, input().split()))
-ans = 0
+# N = int(input())
+# A = list(map(int, input().split()))
+# ans = 0
 
-for i in range(N+1):
-    count = 0
-    for a in A:
-        if a >= i:
-            count += 1
-    if count >= i:
-        ans = i
+# for i in range(N+1):
+#     count = 0
+#     for a in A:
+#         if a >= i:
+#             count += 1
+#     if count >= i:
+#         ans = i
     
-print(ans)
+# print(ans)
+
+N, Q = map(int, input().split())
+X = list(map(int, input().split()))
+count = [0 for _ in range(N)]
+ans = []
+
+for i in range(1, Q+1):
+    if X[i-1] != 0:
+        ans.append(X[i-1])
+        count[X[i-1]-1] += 1
+    else:
+        min_index = count.index(min(count))
+        ans.append(min_index+1)
+        count[min_index] += 1
+print(*ans)

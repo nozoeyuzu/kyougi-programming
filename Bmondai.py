@@ -191,13 +191,25 @@
 #         count[min_index] += 1
 # print(*ans)
 
-N = int(input())
-D = list(map(int, input().split()))
+# N = int(input())
+# D = list(map(int, input().split()))
 
-for i in range(len(D)+1):
-    dist = 0
-    distance = []
-    for j in range(i+1, len(D)+1):
-        dist += D[j-1]
-        distance.append(dist)
-    print(*distance)
+# for i in range(len(D)+1):
+#     dist = 0
+#     distance = []
+#     for j in range(i+1, len(D)+1):
+#         dist += D[j-1]
+#         distance.append(dist)
+#     print(*distance)
+
+S = list(input().strip())
+T = list(input().strip())
+
+for i in range(1, len(S)):
+    if S[i].isupper():
+        if S[i-1] in T:
+            continue
+        print('No')
+        exit()
+    continue
+print('Yes')

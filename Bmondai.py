@@ -176,17 +176,28 @@
     
 # print(ans)
 
-N, Q = map(int, input().split())
-X = list(map(int, input().split()))
-count = [0 for _ in range(N)]
-ans = []
+# N, Q = map(int, input().split())
+# X = list(map(int, input().split()))
+# count = [0 for _ in range(N)]
+# ans = []
 
-for i in range(1, Q+1):
-    if X[i-1] != 0:
-        ans.append(X[i-1])
-        count[X[i-1]-1] += 1
-    else:
-        min_index = count.index(min(count))
-        ans.append(min_index+1)
-        count[min_index] += 1
-print(*ans)
+# for i in range(1, Q+1):
+#     if X[i-1] != 0:
+#         ans.append(X[i-1])
+#         count[X[i-1]-1] += 1
+#     else:
+#         min_index = count.index(min(count))
+#         ans.append(min_index+1)
+#         count[min_index] += 1
+# print(*ans)
+
+N = int(input())
+D = list(map(int, input().split()))
+
+for i in range(len(D)+1):
+    dist = 0
+    distance = []
+    for j in range(i+1, len(D)+1):
+        dist += D[j-1]
+        distance.append(dist)
+    print(*distance)

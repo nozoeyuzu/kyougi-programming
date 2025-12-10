@@ -202,14 +202,28 @@
 #         distance.append(dist)
 #     print(*distance)
 
-S = list(input().strip())
-T = list(input().strip())
+# S = list(input().strip())
+# T = list(input().strip())
 
-for i in range(1, len(S)):
-    if S[i].isupper():
-        if S[i-1] in T:
+# for i in range(1, len(S)):
+#     if S[i].isupper():
+#         if S[i-1] in T:
+#             continue
+#         print('No')
+#         exit()
+#     continue
+# print('Yes')
+
+N = int(input())
+S = [input().strip() for _ in range(N)]
+words = set()
+ans = 0
+
+for i in range(N):
+    for j in range(N):
+        if i==j:
             continue
-        print('No')
-        exit()
-    continue
-print('Yes')
+        if S[i] + S[j] not in words:
+            words.add(S[i] + S[j])
+            ans += 1
+print(ans)

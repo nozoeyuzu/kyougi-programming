@@ -214,16 +214,30 @@
 #     continue
 # print('Yes')
 
-N = int(input())
-S = [input().strip() for _ in range(N)]
-words = set()
-ans = 0
+# N = int(input())
+# S = [input().strip() for _ in range(N)]
+# words = set()
+# ans = 0
 
+# for i in range(N):
+#     for j in range(N):
+#         if i==j:
+#             continue
+#         if S[i] + S[j] not in words:
+#             words.add(S[i] + S[j])
+#             ans += 1
+# print(ans)
+
+N = int(input())
+S = [input().split() for _ in range(N)]
+ans = []
+word_count = 0
 for i in range(N):
-    for j in range(N):
-        if i==j:
-            continue
-        if S[i] + S[j] not in words:
-            words.add(S[i] + S[j])
-            ans += 1
-print(ans)
+    S[i][1] = int(S[i][1])
+    word_count += S[i][1]
+    if word_count > 100:
+        print('Too Long')
+        exit()
+    S[i][1] = int(S[i][1])
+    ans.append(S[i][0]*S[i][1])
+print(''.join(ans))

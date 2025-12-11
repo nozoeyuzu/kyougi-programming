@@ -242,11 +242,26 @@
 #     ans.append(S[i][0]*S[i][1])
 # print(''.join(ans))
 
+# S = list(input().strip())
+# ans = []
+# for i in range(len(S)):
+#     if S[i] == '#':
+#         ans.append(i+1)
+#     if len(ans) == 2:
+#         print(','.join(map(str, ans)))
+#         ans = []
+
 S = list(input().strip())
-ans = []
+T = []
+o_flag = False
+
 for i in range(len(S)):
     if S[i] == '#':
-        ans.append(i+1)
-    if len(ans) == 2:
-        print(','.join(map(str, ans)))
-        ans = []
+        T.append("#")
+        o_flag = False
+    elif S[i] == '.' and o_flag == False:
+        T.append('o')
+        o_flag = True
+    else:
+        T.append('.')
+print(''.join(map(str,T)))

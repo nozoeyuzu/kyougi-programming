@@ -228,16 +228,25 @@
 #             ans += 1
 # print(ans)
 
-N = int(input())
-S = [input().split() for _ in range(N)]
+# N = int(input())
+# S = [input().split() for _ in range(N)]
+# ans = []
+# word_count = 0
+# for i in range(N):
+#     S[i][1] = int(S[i][1])
+#     word_count += S[i][1]
+#     if word_count > 100:
+#         print('Too Long')
+#         exit()
+#     S[i][1] = int(S[i][1])
+#     ans.append(S[i][0]*S[i][1])
+# print(''.join(ans))
+
+S = list(input().strip())
 ans = []
-word_count = 0
-for i in range(N):
-    S[i][1] = int(S[i][1])
-    word_count += S[i][1]
-    if word_count > 100:
-        print('Too Long')
-        exit()
-    S[i][1] = int(S[i][1])
-    ans.append(S[i][0]*S[i][1])
-print(''.join(ans))
+for i in range(len(S)):
+    if S[i] == '#':
+        ans.append(i+1)
+    if len(ans) == 2:
+        print(','.join(map(str, ans)))
+        ans = []

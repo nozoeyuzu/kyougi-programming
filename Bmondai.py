@@ -251,17 +251,26 @@
 #         print(','.join(map(str, ans)))
 #         ans = []
 
-S = list(input().strip())
-T = []
-o_flag = False
+# S = list(input().strip())
+# T = []
+# o_flag = False
 
-for i in range(len(S)):
-    if S[i] == '#':
-        T.append("#")
-        o_flag = False
-    elif S[i] == '.' and o_flag == False:
-        T.append('o')
-        o_flag = True
-    else:
-        T.append('.')
-print(''.join(map(str,T)))
+# for i in range(len(S)):
+#     if S[i] == '#':
+#         T.append("#")
+#         o_flag = False
+#     elif S[i] == '.' and o_flag == False:
+#         T.append('o')
+#         o_flag = True
+#     else:
+#         T.append('.')
+# print(''.join(map(str,T)))
+
+N, M = map(int, input().split())
+A = input().split()
+B = input().split()
+
+for b in B:
+    if b in A:
+        A.remove(b)
+print(*A)

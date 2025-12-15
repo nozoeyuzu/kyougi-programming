@@ -266,11 +266,27 @@
 #         T.append('.')
 # print(''.join(map(str,T)))
 
-N, M = map(int, input().split())
-A = input().split()
-B = input().split()
+# N, M = map(int, input().split())
+# A = input().split()
+# B = input().split()
 
-for b in B:
-    if b in A:
-        A.remove(b)
-print(*A)
+# for b in B:
+#     if b in A:
+#         A.remove(b)
+# print(*A)
+
+S = input().strip()
+ans = 0.0
+
+for i in range(len(S)):
+    if S[i] != 't':
+        continue
+    for j in range(i+2, len(S)):
+        if S[j] != 't':
+            continue
+        t = S[i:j+1]
+        x = t.count('t')
+        tmp = (x - 2) / (len(t) - 2)
+        if tmp > ans:
+            ans = tmp
+print(ans)

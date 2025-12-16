@@ -275,18 +275,29 @@
 #         A.remove(b)
 # print(*A)
 
-S = input().strip()
-ans = 0.0
+# S = input().strip()
+# ans = 0.0
 
-for i in range(len(S)):
-    if S[i] != 't':
-        continue
-    for j in range(i+2, len(S)):
-        if S[j] != 't':
-            continue
-        t = S[i:j+1]
-        x = t.count('t')
-        tmp = (x - 2) / (len(t) - 2)
-        if tmp > ans:
-            ans = tmp
-print(ans)
+# for i in range(len(S)):
+#     if S[i] != 't':
+#         continue
+#     for j in range(i+2, len(S)):
+#         if S[j] != 't':
+#             continue
+#         t = S[i:j+1]
+#         x = t.count('t')
+#         tmp = (x - 2) / (len(t) - 2)
+#         if tmp > ans:
+#             ans = tmp
+# print(ans)
+
+Q = int(input())
+balls = []
+
+for _ in range(Q):
+    q = input().split()
+    if q[0] == '1':
+        balls.append(int(q[1]))
+    else:
+        print(min(balls))
+        balls.remove(min(balls))

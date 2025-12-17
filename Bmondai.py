@@ -291,13 +291,43 @@
 #             ans = tmp
 # print(ans)
 
-Q = int(input())
-balls = []
+# Q = int(input())
+# balls = []
 
-for _ in range(Q):
-    q = input().split()
-    if q[0] == '1':
-        balls.append(int(q[1]))
+# for _ in range(Q):
+#     q = input().split()
+#     if q[0] == '1':
+#         balls.append(int(q[1]))
+#     else:
+#         print(min(balls))
+#         balls.remove(min(balls))
+
+N, M = map(int, input().split())
+S = [input().strip() for _ in range(N)]
+point = [0] * N
+
+for j in range(M):
+    x = 0
+    for i in range(N):
+        if S[i][j] == '1':
+            x += 1
+        y = N-x
+
+    if x == 0 or y == 0:
+        for i in range(N):
+            point[i] += 1
+    elif x < y:
+        for i in range(N):
+            if S[i][j] == '1':
+                point[i] += 1
     else:
-        print(min(balls))
-        balls.remove(min(balls))
+        for i in range(N):
+            if S[i][j] == '0':
+                point[i] += 1
+
+mx = max(point)
+ans = []
+for i in range(N):
+    if point[i] == mx:
+        ans.append(str(i+1))
+print(' '.join(ans))

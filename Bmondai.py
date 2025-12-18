@@ -302,32 +302,38 @@
 #         print(min(balls))
 #         balls.remove(min(balls))
 
-N, M = map(int, input().split())
-S = [input().strip() for _ in range(N)]
-point = [0] * N
+# N, M = map(int, input().split())
+# S = [input().strip() for _ in range(N)]
+# point = [0] * N
 
-for j in range(M):
-    x = 0
-    for i in range(N):
-        if S[i][j] == '1':
-            x += 1
-        y = N-x
+# for j in range(M):
+#     x = 0
+#     for i in range(N):
+#         if S[i][j] == '1':
+#             x += 1
+#         y = N-x
 
-    if x == 0 or y == 0:
-        for i in range(N):
-            point[i] += 1
-    elif x < y:
-        for i in range(N):
-            if S[i][j] == '1':
-                point[i] += 1
-    else:
-        for i in range(N):
-            if S[i][j] == '0':
-                point[i] += 1
+#     if x == 0 or y == 0:
+#         for i in range(N):
+#             point[i] += 1
+#     elif x < y:
+#         for i in range(N):
+#             if S[i][j] == '1':
+#                 point[i] += 1
+#     else:
+#         for i in range(N):
+#             if S[i][j] == '0':
+#                 point[i] += 1
 
-mx = max(point)
-ans = []
-for i in range(N):
-    if point[i] == mx:
-        ans.append(str(i+1))
-print(' '.join(ans))
+# mx = max(point)
+# ans = []
+# for i in range(N):
+#     if point[i] == mx:
+#         ans.append(str(i+1))
+# print(' '.join(ans))
+
+X, Y = map(int, input().split())
+a = [X,Y]
+for i in range(2,10):
+   a.append(int(str(a[i-1]+a[i-2])[::-1]))
+print(a[9])

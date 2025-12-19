@@ -332,8 +332,9 @@
 #         ans.append(str(i+1))
 # print(' '.join(ans))
 
-X, Y = map(int, input().split())
-a = [X,Y]
-for i in range(2,10):
-   a.append(int(str(a[i-1]+a[i-2])[::-1]))
-print(a[9])
+# X, Y = map(int, input().split())
+# a = [X,Y]
+# for i in range(2,10):
+#    a.append(int(str(a[i-1]+a[i-2])[::-1]))
+# print(a[9])
+

@@ -338,19 +338,35 @@
 #    a.append(int(str(a[i-1]+a[i-2])[::-1]))
 # print(a[9])
 
-H, W = map(int, input().split())
-S = [input().strip() for _ in range(H)]
+# H, W = map(int, input().split())
+# S = [input().strip() for _ in range(H)]
 
-for i in range(H):
-    for j in range(W):
-        if S[i][j] == '#':
-            count = 0
-            for di, dj in [(1,0), (-1,0), (0,1), (0,-1)]:
-                k = i + di
-                l = j + dj
-                if 0<= k < H and 0 <= l < W and S[k][l] == '#' :
-                    count += 1
-            if count != 2 and count != 4:
-                print('No')
-                exit()
-print('Yes')
+# for i in range(H):
+#     for j in range(W):
+#         if S[i][j] == '#':
+#             count = 0
+#             for di, dj in [(1,0), (-1,0), (0,1), (0,-1)]:
+#                 k = i + di
+#                 l = j + dj
+#                 if 0<= k < H and 0 <= l < W and S[k][l] == '#' :
+#                     count += 1
+#             if count != 2 and count != 4:
+#                 print('No')
+#                 exit()
+# print('Yes')
+
+N = int(input())
+L = list(map(int, input().split()))
+
+reverse_L = L[::-1]
+first = 0
+last = 0
+for i in range(N):
+    if L[i] == 1:
+        first = i
+        break
+for i in range(N):
+    if reverse_L[i] == 1:
+        last = N-i-1
+        break
+print(last - first)

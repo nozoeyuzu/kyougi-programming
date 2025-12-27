@@ -355,18 +355,31 @@
 #                 exit()
 # print('Yes')
 
-N = int(input())
-L = list(map(int, input().split()))
+# N = int(input())
+# L = list(map(int, input().split()))
 
-reverse_L = L[::-1]
-first = 0
-last = 0
-for i in range(N):
-    if L[i] == 1:
-        first = i
-        break
-for i in range(N):
-    if reverse_L[i] == 1:
-        last = N-i-1
-        break
-print(last - first)
+# reverse_L = L[::-1]
+# first = 0
+# last = 0
+# for i in range(N):
+#     if L[i] == 1:
+#         first = i
+#         break
+# for i in range(N):
+#     if reverse_L[i] == 1:
+#         last = N-i-1
+#         break
+# print(last - first)
+
+N, M, K = map(int, input().split())
+solved = [set() for _ in range(N+1)]
+done = [False] * (N+1)
+ans = []
+
+for i in range(K):
+    a,b = map(int, input().split())
+    solved[a].add(b)
+    if not done[a] and len(solved[a]) == M:
+        done[a] = True
+        ans.append(a)
+print(*ans)

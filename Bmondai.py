@@ -371,15 +371,38 @@
 #         break
 # print(last - first)
 
-N, M, K = map(int, input().split())
-solved = [set() for _ in range(N+1)]
-done = [False] * (N+1)
-ans = []
+# N, M, K = map(int, input().split())
+# solved = [set() for _ in range(N+1)]
+# done = [False] * (N+1)
+# ans = []
 
-for i in range(K):
-    a,b = map(int, input().split())
-    solved[a].add(b)
-    if not done[a] and len(solved[a]) == M:
-        done[a] = True
-        ans.append(a)
+# for i in range(K):
+#     a,b = map(int, input().split())
+#     solved[a].add(b)
+#     if not done[a] and len(solved[a]) == M:
+#         done[a] = True
+#         ans.append(a)
+# print(*ans)
+
+N = int(input())
+A = list(map(int, input().split()))
+ans = [0] * N
+used = set()
+
+for i in range(N):
+    if A[i] != -1:
+        if A[i] in used:
+            print('No')
+            exit()
+        ans[i] = A[i]
+        used.add(A[i])
+
+remain = [x for x in range(1, N+1) if x not in used]
+
+idx = 0
+for i in range(N):
+    if A[i] == -1:
+        ans[i] = remain[idx]
+        idx += 1
+print('Yes')
 print(*ans)

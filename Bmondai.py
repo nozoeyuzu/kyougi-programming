@@ -406,3 +406,16 @@
 #         idx += 1
 # print('Yes')
 # print(*ans)
+
+S = list(input().strip())
+for i in range(len(S)-2):
+    if S[i] != S[i+1]:
+        if S[i] == S[i+2]:
+            print(S[i+1])
+            exit()
+        elif S[i+1] == S[i+2]:
+            print(S[i])
+            exit()
+if S[len(S)-2] != S[len(S)-1]:
+    print(S[len(S)-1])
+        

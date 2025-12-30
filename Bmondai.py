@@ -384,25 +384,25 @@
 #         ans.append(a)
 # print(*ans)
 
-N = int(input())
-A = list(map(int, input().split()))
-ans = [0] * N
-used = set()
+# N = int(input())
+# A = list(map(int, input().split()))
+# ans = [0] * N
+# used = set()
 
-for i in range(N):
-    if A[i] != -1:
-        if A[i] in used:
-            print('No')
-            exit()
-        ans[i] = A[i]
-        used.add(A[i])
+# for i in range(N):
+#     if A[i] != -1:
+#         if A[i] in used:
+#             print('No')
+#             exit()
+#         ans[i] = A[i]
+#         used.add(A[i])
 
-remain = [x for x in range(1, N+1) if x not in used]
+# remain = [x for x in range(1, N+1) if x not in used]
 
-idx = 0
-for i in range(N):
-    if A[i] == -1:
-        ans[i] = remain[idx]
-        idx += 1
-print('Yes')
-print(*ans)
+# idx = 0
+# for i in range(N):
+#     if A[i] == -1:
+#         ans[i] = remain[idx]
+#         idx += 1
+# print('Yes')
+# print(*ans)

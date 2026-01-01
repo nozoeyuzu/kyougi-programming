@@ -419,8 +419,24 @@
 # if S[len(S)-2] != S[len(S)-1]:
 #     print(S[len(S)-1])
         
-N = int(input())
-A = 1
-for _ in range(N-1):
-    A += sum(map(int, str(A)))
-print(A)
+# N = int(input())
+# A = 1
+# for _ in range(N-1):
+#     A += sum(map(int, str(A)))
+# print(A)
+
+N, K = map(int, input().split())
+S = input().strip()
+ans = {}
+
+for i in range(N-K+1):
+    t = S[i:i+K]
+    if t in ans:
+        ans[t] += 1
+    else:
+        ans[t] = 1
+x = max(ans.values())
+words = sorted(k for k, v in ans.items() if v == x)
+
+print(x)
+print(*words)

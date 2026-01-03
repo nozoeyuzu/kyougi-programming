@@ -425,18 +425,27 @@
 #     A += sum(map(int, str(A)))
 # print(A)
 
-N, K = map(int, input().split())
-S = input().strip()
-ans = {}
+# N, K = map(int, input().split())
+# S = input().strip()
+# ans = {}
 
-for i in range(N-K+1):
-    t = S[i:i+K]
-    if t in ans:
-        ans[t] += 1
-    else:
-        ans[t] = 1
-x = max(ans.values())
-words = sorted(k for k, v in ans.items() if v == x)
+# for i in range(N-K+1):
+#     t = S[i:i+K]
+#     if t in ans:
+#         ans[t] += 1
+#     else:
+#         ans[t] = 1
+# x = max(ans.values())
+# words = sorted(k for k, v in ans.items() if v == x)
 
-print(x)
-print(*words)
+# print(x)
+# print(*words)
+
+N, M = map(int, input().split())
+A = list(map(int, input().split()))
+
+for i in range(N):
+    if sum(A) - A[i] == M:
+        print('Yes')
+        exit()
+print('No')

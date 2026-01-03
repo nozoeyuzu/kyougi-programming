@@ -441,11 +441,22 @@
 # print(x)
 # print(*words)
 
-N, M = map(int, input().split())
-A = list(map(int, input().split()))
+# N, M = map(int, input().split())
+# A = list(map(int, input().split()))
 
-for i in range(N):
-    if sum(A) - A[i] == M:
-        print('Yes')
-        exit()
-print('No')
+# for i in range(N):
+#     if sum(A) - A[i] == M:
+#         print('Yes')
+#         exit()
+# print('No')
+
+N, M = map(int, input().split())
+S = [input().strip() for _ in range(N)]
+area = set()
+block = []
+
+for j in range(N-M+1):
+    for i in range(N-M+1):
+        block = tuple(S[i+r][j:j+M] for r in range(M))
+        area.add(block)
+print(len(area))

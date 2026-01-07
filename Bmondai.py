@@ -450,13 +450,25 @@
 #         exit()
 # print('No')
 
-N, M = map(int, input().split())
-S = [input().strip() for _ in range(N)]
-area = set()
-block = []
+# N, M = map(int, input().split())
+# S = [input().strip() for _ in range(N)]
+# area = set()
+# block = []
 
-for j in range(N-M+1):
-    for i in range(N-M+1):
-        block = tuple(S[i+r][j:j+M] for r in range(M))
-        area.add(block)
-print(len(area))
+# for j in range(N-M+1):
+#     for i in range(N-M+1):
+#         block = tuple(S[i+r][j:j+M] for r in range(M))
+#         area.add(block)
+# print(len(area))
+
+N = int(input())
+A = list(map(int, input().split()))
+
+for i in range(N):
+    ans = -1
+    for j in range(i-1, -1, -1):
+        if A[j] > A[i]:
+            ans = j + 1
+            break
+    print(ans)    
+        

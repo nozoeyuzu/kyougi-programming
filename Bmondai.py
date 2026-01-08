@@ -461,14 +461,23 @@
 #         area.add(block)
 # print(len(area))
 
-N = int(input())
-A = list(map(int, input().split()))
+# N = int(input())
+# A = list(map(int, input().split()))
 
-for i in range(N):
-    ans = -1
-    for j in range(i-1, -1, -1):
-        if A[j] > A[i]:
-            ans = j + 1
-            break
-    print(ans)    
-        
+# for i in range(N):
+#     ans = -1
+#     for j in range(i-1, -1, -1):
+#         if A[j] > A[i]:
+#             ans = j + 1
+#             break
+#     print(ans)    
+
+N, M = map(int, input().split())
+k = [[]for _ in range(M)]
+
+for _ in range(N):
+    A, B = map(int, input().split())
+    k[A-1].append(B)
+
+for i in range(M):
+    print(sum(k[i])/len(k[i]))

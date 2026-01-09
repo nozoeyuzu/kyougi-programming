@@ -472,12 +472,28 @@
 #             break
 #     print(ans)    
 
-N, M = map(int, input().split())
-k = [[]for _ in range(M)]
+# N, M = map(int, input().split())
+# k = [[]for _ in range(M)]
 
-for _ in range(N):
-    A, B = map(int, input().split())
-    k[A-1].append(B)
+# for _ in range(N):
+#     A, B = map(int, input().split())
+#     k[A-1].append(B)
 
-for i in range(M):
-    print(sum(k[i])/len(k[i]))
+# for i in range(M):
+#     print(sum(k[i])/len(k[i]))
+
+N = int(input())
+A = list(map(int, input().split()))
+ans = 0
+
+for i in range(N):
+    for j in range(i, N):
+        flag = True
+        S = sum(A[i:j+1])
+        for k in range(i,j+1):
+            if S % A[k] == 0:
+                flag = False
+                break
+        if flag:
+            ans += 1
+print(ans)

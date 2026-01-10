@@ -9,8 +9,13 @@
 # W, B = map(int, input().split())
 # print(W*1000//B+1)
 
+# N = int(input())
+# sum = 0
+# for i in range(N+1):
+#     sum += i
+# print(sum)
+
 N = int(input())
-sum = 0
-for i in range(N+1):
-    sum += i
-print(sum)
+S = input().strip()
+ans = 'o'*(N-len(S))+S
+print(ans)

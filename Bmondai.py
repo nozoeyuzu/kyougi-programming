@@ -482,18 +482,40 @@
 # for i in range(M):
 #     print(sum(k[i])/len(k[i]))
 
+# N = int(input())
+# A = list(map(int, input().split()))
+# ans = 0
+
+# for i in range(N):
+#     for j in range(i, N):
+#         flag = True
+#         S = sum(A[i:j+1])
+#         for k in range(i,j+1):
+#             if S % A[k] == 0:
+#                 flag = False
+#                 break
+#         if flag:
+#             ans += 1
+# print(ans)
+
 N = int(input())
-A = list(map(int, input().split()))
-ans = 0
+A = [[0] * N for _ in range(N)]
+A[0][(N-1)//2] = 1
+last_cell = [0, (N-1)//2]
+last_num = 1
+
+for _ in range(N**2-1):
+    if A[(last_cell[0]-1)%N][(last_cell[1]+1)%N]==0:
+        A[(last_cell[0]-1)%N][(last_cell[1]+1)%N] = last_num + 1
+        last_cell = [(last_cell[0]-1)%N, (last_cell[1]+1)%N]
+        last_num = last_num + 1
+    else:
+        A[(last_cell[0]+1)%N][last_cell[1]] = last_num + 1
+        last_cell = [(last_cell[0]+1)%N, last_cell[1]]
+        last_num = last_num + 1
 
 for i in range(N):
-    for j in range(i, N):
-        flag = True
-        S = sum(A[i:j+1])
-        for k in range(i,j+1):
-            if S % A[k] == 0:
-                flag = False
-                break
-        if flag:
-            ans += 1
-print(ans)
+    ans = []
+    for j in range(N):
+        ans.append(A[i][j])
+    print(*ans)

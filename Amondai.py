@@ -15,7 +15,10 @@
 #     sum += i
 # print(sum)
 
-N = int(input())
-S = input().strip()
-ans = 'o'*(N-len(S))+S
-print(ans)
+# N = int(input())
+# S = input().strip()
+# ans = 'o'*(N-len(S))+S
+# print(ans)
+
+A, B = map(int, input().split())
+print(12*A + B)

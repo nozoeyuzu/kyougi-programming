@@ -498,24 +498,38 @@
 #             ans += 1
 # print(ans)
 
-N = int(input())
-A = [[0] * N for _ in range(N)]
-A[0][(N-1)//2] = 1
-last_cell = [0, (N-1)//2]
-last_num = 1
+# N = int(input())
+# A = [[0] * N for _ in range(N)]
+# A[0][(N-1)//2] = 1
+# last_cell = [0, (N-1)//2]
+# last_num = 1
 
-for _ in range(N**2-1):
-    if A[(last_cell[0]-1)%N][(last_cell[1]+1)%N]==0:
-        A[(last_cell[0]-1)%N][(last_cell[1]+1)%N] = last_num + 1
-        last_cell = [(last_cell[0]-1)%N, (last_cell[1]+1)%N]
-        last_num = last_num + 1
-    else:
-        A[(last_cell[0]+1)%N][last_cell[1]] = last_num + 1
-        last_cell = [(last_cell[0]+1)%N, last_cell[1]]
-        last_num = last_num + 1
+# for _ in range(N**2-1):
+#     if A[(last_cell[0]-1)%N][(last_cell[1]+1)%N]==0:
+#         A[(last_cell[0]-1)%N][(last_cell[1]+1)%N] = last_num + 1
+#         last_cell = [(last_cell[0]-1)%N, (last_cell[1]+1)%N]
+#         last_num = last_num + 1
+#     else:
+#         A[(last_cell[0]+1)%N][last_cell[1]] = last_num + 1
+#         last_cell = [(last_cell[0]+1)%N, last_cell[1]]
+#         last_num = last_num + 1
 
-for i in range(N):
-    ans = []
-    for j in range(N):
-        ans.append(A[i][j])
-    print(*ans)
+# for i in range(N):
+#     ans = []
+#     for j in range(N):
+#         ans.append(A[i][j])
+#     print(*ans)
+
+H, W, N = map(int, input().split())
+A = [list(map(int, input().split())) for _ in range(H)]
+B = [int(input()) for _ in range(N)]
+ans = 0
+
+for i in range(H):
+    count = 0
+    for j in range(W):
+        if A[i][j] in B:
+            count += 1
+    if count > ans:
+        ans = count
+print(ans)

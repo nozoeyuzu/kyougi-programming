@@ -20,5 +20,10 @@
 # ans = 'o'*(N-len(S))+S
 # print(ans)
 
-A, B = map(int, input().split())
-print(12*A + B)
+# A, B = map(int, input().split())
+# print(12*A + B)
+
+D, F = map(int, input().split())
+while(D>=F):
+    F += 7
+print(F-D)

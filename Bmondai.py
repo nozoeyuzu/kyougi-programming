@@ -520,16 +520,31 @@
 #         ans.append(A[i][j])
 #     print(*ans)
 
-H, W, N = map(int, input().split())
-A = [list(map(int, input().split())) for _ in range(H)]
-B = [int(input()) for _ in range(N)]
-ans = 0
+# H, W, N = map(int, input().split())
+# A = [list(map(int, input().split())) for _ in range(H)]
+# B = [int(input()) for _ in range(N)]
+# ans = 0
 
-for i in range(H):
+# for i in range(H):
+#     count = 0
+#     for j in range(W):
+#         if A[i][j] in B:
+#             count += 1
+#     if count > ans:
+#         ans = count
+# print(ans)
+
+N, M = map(int, input().split())
+S = list(map(int, input().strip()))
+T = list(map(int, input().strip()))
+ans = 10**9
+
+for i in range(N-M+1):
     count = 0
-    for j in range(W):
-        if A[i][j] in B:
-            count += 1
-    if count > ans:
-        ans = count
+    for j in range(M):
+        s = S[i + j]
+        t = T[j]
+        count += (s-t)%10
+    ans = min(ans, count)
+
 print(ans)

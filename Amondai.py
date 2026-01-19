@@ -23,7 +23,10 @@
 # A, B = map(int, input().split())
 # print(12*A + B)
 
-D, F = map(int, input().split())
-while(D>=F):
-    F += 7
-print(F-D)
+# D, F = map(int, input().split())
+# while(D>=F):
+#     F += 7
+# print(F-D)
+
+N = int(input())
+print(2**N - 2*N)

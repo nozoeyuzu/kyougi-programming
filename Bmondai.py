@@ -534,17 +534,32 @@
 #         ans = count
 # print(ans)
 
-N, M = map(int, input().split())
-S = list(map(int, input().strip()))
-T = list(map(int, input().strip()))
-ans = 10**9
+# N, M = map(int, input().split())
+# S = list(map(int, input().strip()))
+# T = list(map(int, input().strip()))
+# ans = 10**9
 
-for i in range(N-M+1):
-    count = 0
-    for j in range(M):
-        s = S[i + j]
-        t = T[j]
-        count += (s-t)%10
-    ans = min(ans, count)
+# for i in range(N-M+1):
+#     count = 0
+#     for j in range(M):
+#         s = S[i + j]
+#         t = T[j]
+#         count += (s-t)%10
+#     ans = min(ans, count)
 
-print(ans)
+# print(ans)
+
+N = list(map(int, input().strip()))
+seen = set()
+while True:
+    num = sum(d*d for d in N)
+    if num == 1:
+        print('Yes')
+        exit()
+
+    if num in seen:
+        print('No')
+        break
+    
+    seen.add(num)
+    N = list(map(int, str(num)))

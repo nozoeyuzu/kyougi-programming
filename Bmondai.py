@@ -549,17 +549,26 @@
 
 # print(ans)
 
-N = list(map(int, input().strip()))
-seen = set()
-while True:
-    num = sum(d*d for d in N)
-    if num == 1:
-        print('Yes')
-        exit()
+# N = list(map(int, input().strip()))
+# seen = set()
+# while True:
+#     num = sum(d*d for d in N)
+#     if num == 1:
+#         print('Yes')
+#         exit()
 
-    if num in seen:
-        print('No')
-        break
+#     if num in seen:
+#         print('No')
+#         break
     
-    seen.add(num)
-    N = list(map(int, str(num)))
+#     seen.add(num)
+#     N = list(map(int, str(num)))
+
+N = int(input())
+T = list(map(int, input().split()))
+Time = dict()
+
+for i in range(N):
+    Time[i+1] = T[i]
+sorted_time = sorted(Time, key=lambda k: Time[k])
+print(*sorted_time[0:3])

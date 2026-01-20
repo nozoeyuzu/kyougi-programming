@@ -28,5 +28,8 @@
 #     F += 7
 # print(F-D)
 
-N = int(input())
-print(2**N - 2*N)
+# N = int(input())
+# print(2**N - 2*N)
+
+X, Y = map(int, input().split())
+print(X*2**Y)

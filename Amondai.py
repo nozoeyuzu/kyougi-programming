@@ -31,5 +31,13 @@
 # N = int(input())
 # print(2**N - 2*N)
 
+# X, Y = map(int, input().split())
+# print(X*2**Y)
+
+P, Q = map(int, input().split())
 X, Y = map(int, input().split())
-print(X*2**Y)
+
+if P <= X < P + 100 and Q <= Y < Q + 100:
+    print('Yes')
+else:
+    print('No')

@@ -564,11 +564,30 @@
 #     seen.add(num)
 #     N = list(map(int, str(num)))
 
-N = int(input())
-T = list(map(int, input().split()))
-Time = dict()
+# N = int(input())
+# T = list(map(int, input().split()))
+# Time = dict()
 
-for i in range(N):
-    Time[i+1] = T[i]
-sorted_time = sorted(Time, key=lambda k: Time[k])
-print(*sorted_time[0:3])
+# for i in range(N):
+#     Time[i+1] = T[i]
+# sorted_time = sorted(Time, key=lambda k: Time[k])
+# print(*sorted_time[0:3])
+
+N, M = map(int, input().split())
+S = input().strip()
+T = input().strip()
+Q = int(input())
+setS = set(S)
+setT = set(T)
+onlyS = setS - setT
+onlyT = setT - setS
+
+for _ in range(Q):
+    w = input().strip()
+    W = set(w)
+    if W & onlyS:
+        print('Takahashi')
+    elif W & onlyT:
+        print('Aoki')
+    else:
+        print('Unknown')

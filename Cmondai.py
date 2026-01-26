@@ -20,22 +20,47 @@
 #         print(m)
 #         exit()
 
-T = int(input())
+# T = int(input())
 
-for _ in range(T):
-    N, W = map(int, input().split())
-    case = list(map(int, input().split()))
-    cost = [0] * (W*2)
+# for _ in range(T):
+#     N, W = map(int, input().split())
+#     case = list(map(int, input().split()))
+#     cost = [0] * (W*2)
 
-    for i in range(N):
-        cost[i%(2*W)] += case[i]
+#     for i in range(N):
+#         cost[i%(2*W)] += case[i]
     
-    costs = cost + cost
-    c = sum(costs[0:W])
-    ans = c
+#     costs = cost + cost
+#     c = sum(costs[0:W])
+#     ans = c
 
-    for l in range(1, W*2):
-        c += costs[l + W -1] - costs[l - 1]
-        if c < ans:
-            ans = c
-    print(ans)
+#     for l in range(1, W*2):
+#         c += costs[l + W -1] - costs[l - 1]
+#         if c < ans:
+#             ans = c
+#     print(ans)
+
+#TLEになった
+# N = int(input())
+# ans = []
+
+# for i in range(1,N):
+#     for j in range(i+1, N+1):
+#         num = i**2 + j**2
+#         if num <= N:
+#             ans.append(num)
+# print(len(ans))
+# print(*sorted(ans))
+
+import math
+N = int(input())
+cnt = [0] * (N + 1)
+
+for i in range(1, math.isqrt(N)):
+    for j in range(i+1, math.isqrt(N-i*i) + 1):
+        num = i**2 + j**2
+        cnt[num] += 1
+ans = [n for n in range(1, N+1) if cnt[n] == 1]
+
+print(len(ans))
+print(*ans)

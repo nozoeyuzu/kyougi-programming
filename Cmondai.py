@@ -52,15 +52,31 @@
 # print(len(ans))
 # print(*sorted(ans))
 
-import math
+# import math
+# N = int(input())
+# cnt = [0] * (N + 1)
+
+# for i in range(1, math.isqrt(N)):
+#     for j in range(i+1, math.isqrt(N-i*i) + 1):
+#         num = i**2 + j**2
+#         cnt[num] += 1
+# ans = [n for n in range(1, N+1) if cnt[n] == 1]
+
+# print(len(ans))
+# print(*ans)
+
 N = int(input())
-cnt = [0] * (N + 1)
+A = list(map(int, input().split()))
 
-for i in range(1, math.isqrt(N)):
-    for j in range(i+1, math.isqrt(N-i*i) + 1):
-        num = i**2 + j**2
-        cnt[num] += 1
-ans = [n for n in range(1, N+1) if cnt[n] == 1]
+stack = []
+for x in A:
+    if stack and stack[-1][0] == x:
+        v, c = stack.pop()
+        c += 1
+        if c < 4:
+                stack.append((v, c))
+    else:
+         stack.append((x, 1))
 
-print(len(ans))
-print(*ans)
+ans = sum(c for _, c in stack)
+print(ans)

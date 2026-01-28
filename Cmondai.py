@@ -65,18 +65,40 @@
 # print(len(ans))
 # print(*ans)
 
-N = int(input())
-A = list(map(int, input().split()))
+# N = int(input())
+# A = list(map(int, input().split()))
 
-stack = []
-for x in A:
-    if stack and stack[-1][0] == x:
-        v, c = stack.pop()
-        c += 1
-        if c < 4:
-                stack.append((v, c))
-    else:
-         stack.append((x, 1))
+# stack = []
+# for x in A:
+#     if stack and stack[-1][0] == x:
+#         v, c = stack.pop()
+#         c += 1
+#         if c < 4:
+#                 stack.append((v, c))
+#     else:
+#          stack.append((x, 1))
 
-ans = sum(c for _, c in stack)
-print(ans)
+# ans = sum(c for _, c in stack)
+# print(ans)
+
+T = int(input())
+for i in range(T):
+    N = int(input())
+    S = 0
+    costs = []
+    for _ in range(N):
+        w, p = map(int, input().split()) 
+        S += p
+        costs.append(w+p)
+    costs.sort()
+
+    total = 0
+    count = 0
+    for c in costs:
+        if total + c <= S:
+            total += c
+            count += 1
+        else:
+            break
+
+    print(count)

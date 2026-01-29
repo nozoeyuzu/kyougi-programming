@@ -81,24 +81,54 @@
 # ans = sum(c for _, c in stack)
 # print(ans)
 
-T = int(input())
-for i in range(T):
-    N = int(input())
-    S = 0
-    costs = []
-    for _ in range(N):
-        w, p = map(int, input().split()) 
-        S += p
-        costs.append(w+p)
-    costs.sort()
+# T = int(input())
+# for i in range(T):
+#     N = int(input())
+#     S = 0
+#     costs = []
+#     for _ in range(N):
+#         w, p = map(int, input().split()) 
+#         S += p
+#         costs.append(w+p)
+#     costs.sort()
 
-    total = 0
-    count = 0
-    for c in costs:
-        if total + c <= S:
-            total += c
-            count += 1
-        else:
-            break
+#     total = 0
+#     count = 0
+#     for c in costs:
+#         if total + c <= S:
+#             total += c
+#             count += 1
+#         else:
+#             break
 
-    print(count)
+#     print(count)
+
+#MLE
+# N, M = map(int, input().split())
+# area = [[False]*(N+1) for _ in range(N+1)]
+# count = 0
+# for _ in range(M):
+#     r, c = map(int, input().split())
+#     block = [area[r][c], area[r+1][c], area[r][c+1], area[r+1][c+1]]
+#     if any(block):
+#         continue
+#     else:
+#         area[r][c] = True
+#         area[r+1][c] = True
+#         area[r][c+1] = True
+#         area[r+1][c+1] = True
+#         count += 1 
+# print(count)
+
+N, M = map(int, input().split())
+block = set()
+count = 0
+for _ in range(M):
+    r, c = map(int, input().split())
+    if (r,c) not in block and (r+1,c) not in block and (r,c+1) not in block and (r+1,c+1) not in block:
+        block.add((r,c))
+        block.add((r+1,c))
+        block.add((r,c+1))
+        block.add((r+1,c+1))
+        count += 1
+print(count)

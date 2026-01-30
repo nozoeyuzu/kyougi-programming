@@ -120,15 +120,27 @@
 #         count += 1 
 # print(count)
 
-N, M = map(int, input().split())
-block = set()
-count = 0
-for _ in range(M):
-    r, c = map(int, input().split())
-    if (r,c) not in block and (r+1,c) not in block and (r,c+1) not in block and (r+1,c+1) not in block:
-        block.add((r,c))
-        block.add((r+1,c))
-        block.add((r,c+1))
-        block.add((r+1,c+1))
-        count += 1
-print(count)
+# N, M = map(int, input().split())
+# block = set()
+# count = 0
+# for _ in range(M):
+#     r, c = map(int, input().split())
+#     if (r,c) not in block and (r+1,c) not in block and (r,c+1) not in block and (r+1,c+1) not in block:
+#         block.add((r,c))
+#         block.add((r+1,c))
+#         block.add((r,c+1))
+#         block.add((r+1,c+1))
+#         count += 1
+# print(count)
+
+N = int(input())
+A = list(map(int, input().split()))
+
+crr = 1 + A[0]
+
+for i in range(N):
+    if i+1 >= crr:
+        print(i)
+        exit()
+    crr = max(crr, i+1 + A[i])
+print(N)

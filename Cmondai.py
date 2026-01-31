@@ -133,14 +133,38 @@
 #         count += 1
 # print(count)
 
-N = int(input())
-A = list(map(int, input().split()))
+# N = int(input())
+# A = list(map(int, input().split()))
 
-crr = 1 + A[0]
+# crr = 1 + A[0]
 
-for i in range(N):
-    if i+1 >= crr:
-        print(i)
-        exit()
-    crr = max(crr, i+1 + A[i])
-print(N)
+# for i in range(N):
+#     if i+1 >= crr:
+#         print(i)
+#         exit()
+#     crr = max(crr, i+1 + A[i])
+# print(N)
+
+T = int(input())
+for _ in range(T):
+    N, H = map(int, input().split())
+
+    low = H
+    high = H
+    prev_t = 0
+    ok = True
+
+    for _ in range(N):
+        t, l, u = map(int, input().split())
+        dt = t - prev_t
+        low -= dt
+        high += dt
+        low = max(low, 1)
+        low = max(low, l)
+        high = min(high, u)
+
+        if low > high:
+            ok = False
+        prev_t = t
+
+    print('Yes' if ok else 'No')

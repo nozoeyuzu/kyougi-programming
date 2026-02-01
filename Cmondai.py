@@ -145,26 +145,43 @@
 #     crr = max(crr, i+1 + A[i])
 # print(N)
 
-T = int(input())
-for _ in range(T):
-    N, H = map(int, input().split())
+# T = int(input())
+# for _ in range(T):
+#     N, H = map(int, input().split())
 
-    low = H
-    high = H
-    prev_t = 0
-    ok = True
+#     low = H
+#     high = H
+#     prev_t = 0
+#     ok = True
 
-    for _ in range(N):
-        t, l, u = map(int, input().split())
-        dt = t - prev_t
-        low -= dt
-        high += dt
-        low = max(low, 1)
-        low = max(low, l)
-        high = min(high, u)
+#     for _ in range(N):
+#         t, l, u = map(int, input().split())
+#         dt = t - prev_t
+#         low -= dt
+#         high += dt
+#         low = max(low, 1)
+#         low = max(low, l)
+#         high = min(high, u)
 
-        if low > high:
-            ok = False
-        prev_t = t
+#         if low > high:
+#             ok = False
+#         prev_t = t
 
-    print('Yes' if ok else 'No')
+#     print('Yes' if ok else 'No')
+
+S = input().strip()
+runs = []
+i = 0
+
+while i < len(S):
+    j = i
+    while j < len(S) and S[j] == S[i]:
+        j += 1
+    runs.append((S[i], j-i))
+    i = j
+
+ans = 0
+for (d1, a), (d2, b) in zip(runs, runs[1:]):
+    if ord(d2) == ord(d1)+1:
+        ans += min(a, b)
+print(ans)

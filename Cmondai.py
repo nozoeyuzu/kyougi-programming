@@ -169,19 +169,41 @@
 
 #     print('Yes' if ok else 'No')
 
-S = input().strip()
-runs = []
+# S = input().strip()
+# runs = []
+# i = 0
+
+# while i < len(S):
+#     j = i
+#     while j < len(S) and S[j] == S[i]:
+#         j += 1
+#     runs.append((S[i], j-i))
+#     i = j
+
+# ans = 0
+# for (d1, a), (d2, b) in zip(runs, runs[1:]):
+#     if ord(d2) == ord(d1)+1:
+#         ans += min(a, b)
+# print(ans)
+
+N, M, K = map(int, input().split())
+H = list(map(int, input().split()))
+B = list(map(int, input().split()))
+
+H.sort()
+B.sort()
 i = 0
+j = 0
+count = 0
 
-while i < len(S):
-    j = i
-    while j < len(S) and S[j] == S[i]:
+while i<N and j<M:
+    if H[i] <= B[j]:
+        count += 1
+        if count >= K:
+            print('Yes')
+            exit()
+        i += 1
         j += 1
-    runs.append((S[i], j-i))
-    i = j
-
-ans = 0
-for (d1, a), (d2, b) in zip(runs, runs[1:]):
-    if ord(d2) == ord(d1)+1:
-        ans += min(a, b)
-print(ans)
+    else:
+        j += 1
+print('No')

@@ -186,24 +186,55 @@
 #         ans += min(a, b)
 # print(ans)
 
-N, M, K = map(int, input().split())
-H = list(map(int, input().split()))
-B = list(map(int, input().split()))
+# N, M, K = map(int, input().split())
+# H = list(map(int, input().split()))
+# B = list(map(int, input().split()))
 
-H.sort()
-B.sort()
-i = 0
-j = 0
-count = 0
+# H.sort()
+# B.sort()
+# i = 0
+# j = 0
+# count = 0
 
-while i<N and j<M:
-    if H[i] <= B[j]:
-        count += 1
-        if count >= K:
-            print('Yes')
-            exit()
-        i += 1
-        j += 1
-    else:
-        j += 1
-print('No')
+# while i<N and j<M:
+#     if H[i] <= B[j]:
+#         count += 1
+#         if count >= K:
+#             print('Yes')
+#             exit()
+#         i += 1
+#         j += 1
+#     else:
+#         j += 1
+# print('No')
+
+N, A, B = map(int, input().split())
+S = input().strip()
+
+ra = rb = 0
+cnta = cntb = 0
+ans = 0
+
+for l in range(N):
+    while ra < N and cnta < A:
+        if S[ra] == 'a':
+            cnta += 1
+        ra += 1
+
+    while rb < N and cntb < B:
+        if S[rb] == 'b':
+            cntb += 1
+        rb += 1
+
+    if cnta < A:
+        break
+
+    if rb > ra:
+        ans += rb - ra
+
+    if l < ra and S[l] == 'a':
+        cnta -= 1
+    if l < rb and S[l] == 'b':
+        cntb -= 1
+
+print(ans)

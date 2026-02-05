@@ -229,8 +229,10 @@ for l in range(N):
     if cnta < A:
         break
 
-    if rb > ra:
-        ans += rb - ra
+    rb_eff = rb if cntb >= B else N + 1
+
+    if rb_eff > ra:
+        ans += rb_eff - ra
 
     if l < ra and S[l] == 'a':
         cnta -= 1

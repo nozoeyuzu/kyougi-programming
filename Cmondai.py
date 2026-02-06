@@ -208,35 +208,46 @@
 #         j += 1
 # print('No')
 
-N, A, B = map(int, input().split())
-S = input().strip()
+# N, A, B = map(int, input().split())
+# S = input().strip()
 
-ra = rb = 0
-cnta = cntb = 0
+# ra = rb = 0
+# cnta = cntb = 0
+# ans = 0
+
+# for l in range(N):
+#     while ra < N and cnta < A:
+#         if S[ra] == 'a':
+#             cnta += 1
+#         ra += 1
+
+#     while rb < N and cntb < B:
+#         if S[rb] == 'b':
+#             cntb += 1
+#         rb += 1
+
+#     if cnta < A:
+#         break
+
+#     rb_eff = rb if cntb >= B else N + 1
+
+#     if rb_eff > ra:
+#         ans += rb_eff - ra
+
+#     if l < ra and S[l] == 'a':
+#         cnta -= 1
+#     if l < rb and S[l] == 'b':
+#         cntb -= 1
+
+# print(ans)
+
+from collections import Counter
+
+N = int(input())
+A = list(map(int, input().split()))
+
+cnt = Counter(A)
 ans = 0
-
-for l in range(N):
-    while ra < N and cnta < A:
-        if S[ra] == 'a':
-            cnta += 1
-        ra += 1
-
-    while rb < N and cntb < B:
-        if S[rb] == 'b':
-            cntb += 1
-        rb += 1
-
-    if cnta < A:
-        break
-
-    rb_eff = rb if cntb >= B else N + 1
-
-    if rb_eff > ra:
-        ans += rb_eff - ra
-
-    if l < ra and S[l] == 'a':
-        cnta -= 1
-    if l < rb and S[l] == 'b':
-        cntb -= 1
-
+for c in cnt.values():
+    ans += c * (c - 1)//2 * (N - c)
 print(ans)

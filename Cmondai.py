@@ -241,13 +241,41 @@
 
 # print(ans)
 
-from collections import Counter
+# from collections import Counter
 
-N = int(input())
-A = list(map(int, input().split()))
+# N = int(input())
+# A = list(map(int, input().split()))
 
-cnt = Counter(A)
-ans = 0
-for c in cnt.values():
-    ans += c * (c - 1)//2 * (N - c)
-print(ans)
+# cnt = Counter(A)
+# ans = 0
+# for c in cnt.values():
+#     ans += c * (c - 1)//2 * (N - c)
+# print(ans)
+
+Q = int(input())
+
+stack = []
+balance = 0
+min_balance = 0
+
+for _ in range(Q):
+    q = input().split()
+
+    if q[0] == '1':
+        c = q[1]
+        if c == '(':
+            balance += 1
+        else:
+            balance -= 1
+        min_balance = min(min_balance, balance)
+        stack.append((balance, min_balance))
+    else:
+        stack.pop()
+        if stack:
+            balance, min_balance = stack[-1]
+        else:
+            balance = min_balance = 0
+    if balance == 0 and min_balance >= 0:
+        print("Yes")
+    else:
+        print("No")

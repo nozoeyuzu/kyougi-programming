@@ -34,10 +34,18 @@
 # X, Y = map(int, input().split())
 # print(X*2**Y)
 
-P, Q = map(int, input().split())
-X, Y = map(int, input().split())
+# P, Q = map(int, input().split())
+# X, Y = map(int, input().split())
 
-if P <= X < P + 100 and Q <= Y < Q + 100:
-    print('Yes')
-else:
-    print('No')
+# if P <= X < P + 100 and Q <= Y < Q + 100:
+#     print('Yes')
+# else:
+#     print('No')
+
+S = list(input().strip())
+cnt = 0
+
+for i in range(len(S)):
+    if S[i] == 'i' or S[i] == 'j':
+        cnt += 1
+print(cnt)

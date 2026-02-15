@@ -573,21 +573,42 @@
 # sorted_time = sorted(Time, key=lambda k: Time[k])
 # print(*sorted_time[0:3])
 
-N, M = map(int, input().split())
-S = input().strip()
-T = input().strip()
+# N, M = map(int, input().split())
+# S = input().strip()
+# T = input().strip()
+# Q = int(input())
+# setS = set(S)
+# setT = set(T)
+# onlyS = setS - setT
+# onlyT = setT - setS
+
+# for _ in range(Q):
+#     w = input().strip()
+#     W = set(w)
+#     if W & onlyS:
+#         print('Takahashi')
+#     elif W & onlyT:
+#         print('Aoki')
+#     else:
+#         print('Unknown')
+
 Q = int(input())
-setS = set(S)
-setT = set(T)
-onlyS = setS - setT
-onlyT = setT - setS
+vol = 0
+run = False
 
 for _ in range(Q):
-    w = input().strip()
-    W = set(w)
-    if W & onlyS:
-        print('Takahashi')
-    elif W & onlyT:
-        print('Aoki')
+    A = int(input())
+    if A == 1:
+        vol += 1
+    elif A == 2:
+        if vol >= 1:
+            vol -= 1
     else:
-        print('Unknown')
+        if run:
+            run = False
+        else:
+            run = True
+    if vol >= 3 and run:
+        print('Yes')
+    else:
+        print('No')

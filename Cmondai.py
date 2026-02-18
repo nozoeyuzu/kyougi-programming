@@ -252,30 +252,44 @@
 #     ans += c * (c - 1)//2 * (N - c)
 # print(ans)
 
-Q = int(input())
+# Q = int(input())
 
-stack = []
-balance = 0
-min_balance = 0
+# stack = []
+# balance = 0
+# min_balance = 0
 
-for _ in range(Q):
-    q = input().split()
+# for _ in range(Q):
+#     q = input().split()
 
-    if q[0] == '1':
-        c = q[1]
-        if c == '(':
-            balance += 1
-        else:
-            balance -= 1
-        min_balance = min(min_balance, balance)
-        stack.append((balance, min_balance))
-    else:
-        stack.pop()
-        if stack:
-            balance, min_balance = stack[-1]
-        else:
-            balance = min_balance = 0
-    if balance == 0 and min_balance >= 0:
-        print("Yes")
-    else:
-        print("No")
+#     if q[0] == '1':
+#         c = q[1]
+#         if c == '(':
+#             balance += 1
+#         else:
+#             balance -= 1
+#         min_balance = min(min_balance, balance)
+#         stack.append((balance, min_balance))
+#     else:
+#         stack.pop()
+#         if stack:
+#             balance, min_balance = stack[-1]
+#         else:
+#             balance = min_balance = 0
+#     if balance == 0 and min_balance >= 0:
+#         print("Yes")
+#     else:
+#         print("No")
+
+N, M = map(int, input().split())
+
+glaph = [0] * (N+1)
+for _ in range(M):
+    a, b = map(int, input().split())
+    glaph[a] += 1
+    glaph[b] += 1
+
+ans = []
+for i in range(1, N+1):
+    can = N - 1 - glaph[i]
+    ans.append(can * (can-1) * (can-2)//6)
+print(*ans)

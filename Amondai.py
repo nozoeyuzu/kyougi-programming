@@ -42,10 +42,13 @@
 # else:
 #     print('No')
 
-S = list(input().strip())
-cnt = 0
+# S = list(input().strip())
+# cnt = 0
 
-for i in range(len(S)):
-    if S[i] == 'i' or S[i] == 'j':
-        cnt += 1
-print(cnt)
+# for i in range(len(S)):
+#     if S[i] == 'i' or S[i] == 'j':
+#         cnt += 1
+# print(cnt)
+
+S = input()
+print(S + 's')

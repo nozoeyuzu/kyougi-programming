@@ -592,23 +592,40 @@
 #     else:
 #         print('Unknown')
 
-Q = int(input())
-vol = 0
-run = False
+# Q = int(input())
+# vol = 0
+# run = False
 
-for _ in range(Q):
-    A = int(input())
-    if A == 1:
-        vol += 1
-    elif A == 2:
-        if vol >= 1:
-            vol -= 1
-    else:
-        if run:
-            run = False
-        else:
-            run = True
-    if vol >= 3 and run:
-        print('Yes')
-    else:
-        print('No')
+# for _ in range(Q):
+#     A = int(input())
+#     if A == 1:
+#         vol += 1
+#     elif A == 2:
+#         if vol >= 1:
+#             vol -= 1
+#     else:
+#         if run:
+#             run = False
+#         else:
+#             run = True
+#     if vol >= 3 and run:
+#         print('Yes')
+#     else:
+#         print('No')
+
+# N, K = map(int, input().split())
+# count = 0
+# ans = 0
+# for i in range(10000):
+#     count += N + i
+#     if count < K:
+#         ans += 1
+# print(ans)
+
+N, K = map(int, input().split())
+count = 0
+ans = 0
+while count < K:
+    count += N + ans
+    ans += 1
+print(ans-1)

@@ -280,16 +280,29 @@
 #     else:
 #         print("No")
 
-N, M = map(int, input().split())
+# N, M = map(int, input().split())
 
-glaph = [0] * (N+1)
-for _ in range(M):
-    a, b = map(int, input().split())
-    glaph[a] += 1
-    glaph[b] += 1
+# glaph = [0] * (N+1)
+# for _ in range(M):
+#     a, b = map(int, input().split())
+#     glaph[a] += 1
+#     glaph[b] += 1
 
-ans = []
-for i in range(1, N+1):
-    can = N - 1 - glaph[i]
-    ans.append(can * (can-1) * (can-2)//6)
-print(*ans)
+# ans = []
+# for i in range(1, N+1):
+#     can = N - 1 - glaph[i]
+#     ans.append(can * (can-1) * (can-2)//6)
+# print(*ans)
+
+N, T = map(int, input().split())
+A = list(map(int, input().split()))
+ans = 0
+diff = 0
+
+for i in range(1,len(A)):
+    diff += A[i] - A[i-1]
+    if diff > 100:
+        ans += 100
+        diff = 0
+        
+print(T - ans)

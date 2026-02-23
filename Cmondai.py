@@ -294,15 +294,27 @@
 #     ans.append(can * (can-1) * (can-2)//6)
 # print(*ans)
 
+# N, T = map(int, input().split())
+# A = list(map(int, input().split()))
+# ans = 0
+# diff = 0
+
+# for i in range(1,len(A)):
+#     diff += A[i] - A[i-1]
+#     if diff > 100:
+#         ans += 100
+#         diff = 0
+        
+# print(T - ans)
+
 N, T = map(int, input().split())
 A = list(map(int, input().split()))
+A.append(T)
 ans = 0
-diff = 0
+last = -100
 
-for i in range(1,len(A)):
-    diff += A[i] - A[i-1]
-    if diff > 100:
-        ans += 100
-        diff = 0
-        
-print(T - ans)
+for A_i in A:
+    if last + 100 <= A_i:
+        ans += A_i - (last + 100)
+        last = A_i
+print(ans)

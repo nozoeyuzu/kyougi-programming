@@ -50,5 +50,11 @@
 #         cnt += 1
 # print(cnt)
 
-S = input()
-print(S + 's')
+# S = input()
+# print(S + 's')
+
+N = list(input().strip())
+if int(N[0]) == int(N[1]) == int(N[2]):
+    print('Yes')
+else:
+    print('No')

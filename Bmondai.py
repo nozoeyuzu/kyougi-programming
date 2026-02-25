@@ -622,10 +622,24 @@
 #         ans += 1
 # print(ans)
 
+# N, K = map(int, input().split())
+# count = 0
+# ans = 0
+# while count < K:
+#     count += N + ans
+#     ans += 1
+# print(ans-1)
+
 N, K = map(int, input().split())
-count = 0
-ans = 0
-while count < K:
-    count += N + ans
-    ans += 1
-print(ans-1)
+cnt = 0
+
+while N > 0:
+    total = 0
+    n = N
+    while n > 0:
+        total += n % 10
+        n = n//10
+    if total == K:
+        cnt += 1
+    N = N - 1
+print(cnt)

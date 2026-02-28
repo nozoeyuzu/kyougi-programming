@@ -307,14 +307,57 @@
         
 # print(T - ans)
 
-N, T = map(int, input().split())
-A = list(map(int, input().split()))
-A.append(T)
-ans = 0
-last = -100
+# N, T = map(int, input().split())
+# A = list(map(int, input().split()))
+# A.append(T)
+# ans = 0
+# last = -100
 
-for A_i in A:
-    if last + 100 <= A_i:
-        ans += A_i - (last + 100)
-        last = A_i
-print(ans)
+# for A_i in A:
+#     if last + 100 <= A_i:
+#         ans += A_i - (last + 100)
+#         last = A_i
+# print(ans)
+
+N = int(input())
+A = list(map(int, input().split()))
+A.sort()
+
+def check_L_max(A, L):
+    l, r = 0, len(A)-1
+    while l <= r:
+        if A[r] == L:
+            r -= 1
+        else:
+            if l == r:
+                return False
+            if A[l] + A[r] != L:
+                return False
+            l += 1
+            r -= 1
+    return True
+
+def check_L_pair(A, L):
+    n = len(A)
+    if n % 2 == 1:
+        return False
+    else:
+        l, r = 0, len(A)-1
+        while l < r:
+            if A[l] + A[r] != L:
+                return False
+            l += 1
+            r -= 1
+    return True
+
+ans = []
+L1 = A[-1]
+if check_L_max(A, L1):
+    ans.append(L1)
+
+L2 = A[0] + A[-1]
+if L2 != L1 and check_L_pair(A, L2):
+    ans.append(L2)
+
+ans.sort()
+print(*ans) 

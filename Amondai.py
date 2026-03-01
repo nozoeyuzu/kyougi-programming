@@ -53,8 +53,14 @@
 # S = input()
 # print(S + 's')
 
-N = list(input().strip())
-if int(N[0]) == int(N[1]) == int(N[2]):
-    print('Yes')
+# N = list(input().strip())
+# if int(N[0]) == int(N[1]) == int(N[2]):
+#     print('Yes')
+# else:
+#     print('No')
+
+S = input().strip()
+if S[0] == S[-1]:
+    print("Yes")
 else:
     print('No')

@@ -630,16 +630,24 @@
 #     ans += 1
 # print(ans-1)
 
-N, K = map(int, input().split())
-cnt = 0
+# N, K = map(int, input().split())
+# cnt = 0
 
-while N > 0:
-    total = 0
-    n = N
-    while n > 0:
-        total += n % 10
-        n = n//10
-    if total == K:
-        cnt += 1
-    N = N - 1
-print(cnt)
+# while N > 0:
+#     total = 0
+#     n = N
+#     while n > 0:
+#         total += n % 10
+#         n = n//10
+#     if total == K:
+#         cnt += 1
+#     N = N - 1
+# print(cnt)
+
+N = int(input())
+S = [input() for _ in range(N)]
+m = max(len(s) for s in S)
+
+for s in S:
+    k = (m - len(s))//2
+    print('.'*k + s + '.'*k)
